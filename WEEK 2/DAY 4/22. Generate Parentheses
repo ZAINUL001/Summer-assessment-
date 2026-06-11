@@ -1,0 +1,21 @@
+class Solution {
+public:
+      vector<string>ans;
+   void Paret(string crnt, int opn, int close, int n){
+        if(crnt.size()==2*n){
+            ans.push_back(crnt);
+            return;
+        }
+         if (opn < n) {
+            Paret(crnt + "(", opn + 1, close, n);
+        }
+
+        if(close<opn){
+            Paret(crnt + ")",opn,close+1,n);
+        }}
+         vector<string> generateParenthesis(int n){
+            Paret("",0,0,n);
+            return ans;
+         }
+    
+};
